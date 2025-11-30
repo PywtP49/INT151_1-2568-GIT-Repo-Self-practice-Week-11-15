@@ -1,0 +1,24 @@
+<input id="todoInput" placeholder="Enter todo..." />
+<button id="addBtn">Add</button>
+<ul id="todoList"></ul>
+
+<script>
+  const input = document.getElementById("todoInput");
+  const list = document.getElementById("todoList");
+  const btn = document.getElementById("addBtn");
+
+  btn.addEventListener("click", () => {
+    const text = input.value.trim();
+    if (!text) return;
+
+    const li = document.createElement("li");
+    li.textContent = text;
+
+    li.addEventListener("click", () => {
+      li.remove();
+    });
+
+    list.appendChild(li);
+    input.value = "";
+  });
+</script>

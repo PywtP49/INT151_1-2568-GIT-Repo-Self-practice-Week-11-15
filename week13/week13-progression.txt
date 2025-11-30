@@ -1,0 +1,61 @@
+WEEK 13 — DATE & TIME PRACTICE
+
+[GOAL]
+
+ใช้ JavaScript Date
+
+แสดงวันที่ปัจจุบัน
+
+Format วัน/เวลา
+
+คำนวณอายุ
+
+คำนวณส่วนต่างของวัน/เวลา
+
+[FILE]
+
+week13/DateTime.html
+
+[PROGRESSION / วิธีทำ]
+
+อ่านวันและเวลาในปัจจุบัน
+
+let now = new Date()
+
+Format วันที่
+
+ดึงส่วนประกอบ:
+
+year = getFullYear()
+
+month = getMonth() + 1
+
+day = getDate()
+
+hour = getHours()
+
+minute = getMinutes()
+
+หมายเหตุ: เดือนต้อง +1
+
+แสดงผลบนหน้าเว็บ
+
+นำข้อมูลไปแสดงใน element เช่น:
+"วันที่ 1/1/2025 12:30"
+
+คำนวณอายุ
+
+age = currentYear - birthYear
+
+คำนวณส่วนต่างเวลา
+
+futureDate - now = milliseconds
+แปลง ms → วัน ชั่วโมง นาที
+
+[EXPECTED RESULT]
+
+แสดงวันที่ปัจจุบันบนหน้า
+
+กรอกวันเกิด → คำนวณอายุ
+
+มีฟังก์ชันคำนวณ difference ได้ถูกต้อง

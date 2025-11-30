@@ -1,0 +1,54 @@
+WEEK 12 — FETCH API PRACTICE
+
+[GOAL]
+
+ใช้ Fetch API ดึงข้อมูลจาก REST API ภายนอก
+
+ใช้ async/await
+
+ใช้โครงสร้าง try/catch ให้เหมาะสม
+
+แสดงผลลง DOM
+
+[FILE]
+
+week12/fetchapi.js
+
+[PROGRESSION / วิธีทำ]
+
+ทำความเข้าใจ API Endpoint
+
+เช่น:
+https://dummyjson.com/products
+
+จะได้ข้อมูล products → เอามาแสดงในหน้าเว็บ
+
+เขียนฟังก์ชัน fetch ข้อมูล
+
+ขั้นตอน:
+
+fetch(URL)
+
+เช็ค res.ok
+
+res.json()
+
+ส่งข้อมูลไปฟังก์ชัน render
+
+แสดงข้อมูลบน DOM
+
+สร้าง list element
+
+วน products.forEach แล้วสร้าง <li>
+
+appendChild ลง list container
+
+Trigger fetch เมื่อโหลดหน้า
+
+window.onload = loadProducts
+
+[EXPECTED RESULT]
+
+เปิดหน้า → รายการสินค้าปรากฏ
+
+ถ้าดึงข้อมูลไม่ได้ → ขึ้น error ใน console

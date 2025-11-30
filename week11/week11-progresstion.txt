@@ -1,0 +1,94 @@
+PROGRESSION SUMMARY — WEEK 11–13
+INT151 SELF-PRACTICE
+
+=======================================
+WEEK 11 — QUOTE MANAGEMENT APP
+
+[GOAL]
+
+ฝึกใช้ Fetch API กับ JSON Server
+
+ทำระบบ CRUD (Create/Read/Delete)
+
+แยกโค้ดเป็น module: UI, Logic, Data Layer
+
+ใช้ async/await และ error handling
+
+[FILES]
+
+index.html
+
+js/app.js
+
+js/quoteManagement.js
+
+js/mylib/fetchUtils.js
+
+db.json (สำหรับ JSON server)
+
+[PROGRESSION / วิธีทำ]
+
+ตั้งค่า JSON Server
+
+สร้างไฟล์ db.json เช่น:
+{
+"quotes": [
+{ "id": 1, "text": "Hello world", "author": "Poon" }
+]
+}
+
+รัน:
+npx json-server --watch db.json --port 3000
+
+ทำ fetchUtils.js (Reusable Fetch)
+
+สร้าง wrapper ฟังก์ชันสำหรับ fetch
+
+ตรวจสอบ res.ok ทุกครั้ง
+
+ส่ง error กลับไปให้ layer บนแก้ไข
+
+ตัวอย่าง flow:
+fetch → check status → return JSON → throw error if fail
+
+ทำ quoteManagement.js (Data Layer)
+
+มีฟังก์ชันหลัก:
+getQuotes()
+addQuote(data)
+deleteQuote(id)
+
+ทุกฟังก์ชันทำงานผ่าน fetchUtils และไม่ยุ่งเกี่ยวกับ UI
+
+ทำ app.js (UI Controller)
+
+loadQuotes(): โหลดข้อมูลและแสดงในหน้า
+
+handleAdd(): ส่งข้อมูลไปเพิ่ม quote
+
+handleDelete(): ลบ quote โดยรับ id
+
+แผนการทำงาน:
+onload → loadQuotes()
+Add → addQuote(data) → reload
+Delete → deleteQuote(id) → reload
+
+ออกแบบ UI (index.html)
+
+มี input: text, author
+
+ปุ่ม Add
+
+รายการแสดง quote + ปุ่ม Delete แต่ละรายการ
+
+DOM จะต้อง refresh หลังการเพิ่ม/ลบ
+
+[EXPECTED RESULT]
+
+หน้าเว็บโหลดคำคมได้
+
+เพิ่มคำคม → ขึ้นทันที
+
+ลบคำคม → หายทันที
+
+fetch error แสดงใน console
